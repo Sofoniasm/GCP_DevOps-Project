@@ -13,5 +13,5 @@ steps:
   - run
   - --filename=gke.yaml
   - --image=gcr.io/$PROJECT_ID/gcpdevops
-  - --cluster=gcp-proj
+  - --cluster=gcp-proj  # Replace with your GKE cluster name
   - --namespace=gcp-devops-project
