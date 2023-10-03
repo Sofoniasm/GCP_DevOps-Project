@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: gcp-devops-gke
+  name: gcp-devops-gke
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gcp-devops-gke
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: gcp-devops-gke
+    spec:
+      containers:
+      - image: gcr.io/kodekloud-gcp-training/test-gcpdevops:latest
+        name: test-gcpdevops
+        ports:
+          - containerPort: 5000
+        env:
+          - name: PORT
+            value: "5000"
+        resources:
+          limits:
+            cpu: "0.5"  # Define your CPU limit here
+            memory: "256Mi"  # Define your memory limit here
+          requests:
+            cpu: "0.2"  # Define your CPU request here
+            memory: "128Mi"  # Define your memory request here
